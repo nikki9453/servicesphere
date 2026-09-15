@@ -1,0 +1,225 @@
+/* ============================================================
+   SERVICE SPHERE — RESPONSIVE DESIGN BREAKPOINTS (css/responsive.css)
+   Clean breakpoints for Desktop (1200+), Laptop (1024),
+   Tablet (768), Mobile (480 & 375)
+   ============================================================ */
+
+/* Large Tablets and Small Laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .services-grid-home,
+  .services-directory-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+/* Tablet (max-width: 860px) */
+@media (max-width: 860px) {
+  /* Navigation: Hide desktop links and show mobile menu button */
+  .mobile-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .main-nav {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    display: none;
+    box-shadow: var(--shadow-md);
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Hero adjustments */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  /* Provider Grid: 2 COLUMNS ON TABLET */
+  .providers-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  /* Steps and Benefits */
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .services-grid-home,
+  .services-directory-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .profile-layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-sidebar-card {
+    position: static;
+  }
+
+  .cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px;
+  }
+}
+
+/* Mobile Devices (max-width: 600px) */
+@media (max-width: 600px) {
+  :root {
+    --header-height: 60px;
+  }
+
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page-header {
+    padding: 28px 0 20px 0;
+    margin-bottom: 24px;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-section {
+    padding: 36px 0 32px 0;
+  }
+
+  .hero-title {
+    font-size: 1.65rem;
+  }
+
+  .hero-lead {
+    font-size: 0.95rem;
+  }
+
+  /* Provider Grid: 1 COLUMN ON MOBILE */
+  .providers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid-home,
+  .services-directory-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-filter-grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-input-wrap,
+  .filter-select,
+  .filter-reset-btn {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .results-meta-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .services-list-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .profile-main-card,
+  .reviews-container {
+    padding: 20px;
+  }
+
+  .profile-head-flex {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+/* Very Small Mobile (375px and below) */
+@media (max-width: 375px) {
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+
+  .brand-title {
+    font-size: 1.05rem;
+  }
+}

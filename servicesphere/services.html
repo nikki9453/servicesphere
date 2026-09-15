@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services in Unnao — Service Sphere</title>
+  <meta name="description" content="Explore everyday services and find professionals near you in Unnao, Uttar Pradesh.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/services.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Service Sphere Home">
+        <div class="brand-text">
+          <span class="brand-title">SERVICE SPHERE</span>
+          <span class="brand-loc">Unnao &bull; Uttar Pradesh</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link active">Services</a></li>
+          <li><a href="providers.html" class="nav-link">Providers</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+        </ul>
+
+        <div class="header-actions">
+          <button type="button" class="theme-toggle-btn" aria-label="Toggle visual theme" title="Switch Theme">
+            <span class="theme-icon">☀️</span>
+            <span class="theme-text">Day</span>
+          </button>
+          <div id="header-auth-container">
+            <a href="auth.html" class="nav-auth-btn">Sign In</a>
+          </div>
+        </div>
+      </nav>
+
+      <button type="button" class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="services-page-wrap">
+    <div class="container">
+      <header class="page-header">
+        <div style="margin-bottom: 10px;">
+          <span class="location-indicator">
+            <span class="loc-dot"></span> Unnao, Uttar Pradesh
+          </span>
+        </div>
+        <h1 class="page-title">Services in Unnao</h1>
+        <p class="page-subtitle">Explore everyday services and find professionals near you.</p>
+      </header>
+
+      <!-- Services Directory Grid (Rendered dynamically by js/services.js) -->
+      <section aria-label="Available Service Categories">
+        <div id="services-directory-container" class="services-directory-grid">
+          <!-- Fallback or dynamic content -->
+        </div>
+      </section>
+
+      <!-- Service Info Banner -->
+      <section class="service-info-banner">
+        <div>
+          <p class="service-info-text">
+            <strong>Looking for a specific trade in Unnao?</strong> All listings represent registered local businesses, shops, and technicians with coverage across Unnao localities.
+          </p>
+        </div>
+        <a href="providers.html" class="btn btn-secondary btn-sm" style="white-space: nowrap;">Browse All Providers</a>
+      </section>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">SERVICE SPHERE</div>
+          <p class="footer-tagline">"Find the right service, right when you need it."</p>
+          <p class="footer-local-notice">
+            Hyper-local service discovery and appointment prototype for Unnao, Uttar Pradesh. BCA Minor Project Prototype.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="providers.html?category=Electrician">Electricians</a></li>
+            <li><a href="providers.html?category=Plumbing">Plumbers</a></li>
+            <li><a href="providers.html?category=AC%20Repair">AC Technicians</a></li>
+            <li><a href="providers.html?category=Computer%20Repair">Computer Repair</a></li>
+            <li><a href="services.html">All 8 Services</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="providers.html">Provider Directory</a></li>
+            <li><a href="bookings.html">My Bookings</a></li>
+            <li><a href="provider-dashboard.html">Provider Portal</a></li>
+            <li><a href="auth.html">Sign In / Register</a></li>
+            <li><a href="about.html">About Project</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Unnao Coverage</h4>
+          <p class="footer-local-notice" style="font-size: 0.8rem; margin-bottom: 8px;">
+            Connecting residents across Civil Lines, Lok Nagar, Narendra Nagar, Moti Nagar, Gadan Khera, and Shuklaganj.
+          </p>
+          <span class="location-indicator" style="font-size: 0.75rem;">
+            <span class="loc-dot"></span> Unnao, UP — 209801
+          </span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Service Sphere &bull; BCA Minor Project Prototype &bull; Unnao, Uttar Pradesh</span>
+        <span>HTML5 &bull; CSS3 &bull; Vanilla JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/services.js"></script>
+</body>
+</html>

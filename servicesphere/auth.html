@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In & Register — Service Sphere Unnao</title>
+  <meta name="description" content="Access your local customer or provider account on Service Sphere Unnao.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .auth-card {
+      max-width: 480px;
+      margin: 40px auto 60px auto;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .auth-role-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+
+    .auth-role-tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .auth-role-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .demo-creds-box {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px dashed var(--border);
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    .demo-creds-box strong {
+      color: var(--text-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Service Sphere Home">
+        <div class="brand-text">
+          <span class="brand-title">SERVICE SPHERE</span>
+          <span class="brand-loc">Unnao &bull; Uttar Pradesh</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="providers.html" class="nav-link">Providers</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+        </ul>
+
+        <div class="header-actions">
+          <button type="button" class="theme-toggle-btn" aria-label="Toggle visual theme" title="Switch Theme">
+            <span class="theme-icon">☀️</span>
+            <span class="theme-text">Day</span>
+          </button>
+          <div id="header-auth-container">
+            <a href="auth.html" class="nav-auth-btn active">Sign In</a>
+          </div>
+        </div>
+      </nav>
+
+      <button type="button" class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main style="padding-bottom: 56px;">
+    <div class="container">
+      <div class="auth-card">
+        <!-- Role Selector Tabs: Customer vs Service Provider -->
+        <div class="auth-role-tabs" role="tablist">
+          <button type="button" class="auth-role-tab active" data-role="customer" role="tab" aria-selected="true">
+            👤 Customer
+          </button>
+          <button type="button" class="auth-role-tab" data-role="provider" role="tab" aria-selected="false">
+            🛠️ Service Provider
+          </button>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <h1 id="auth-card-title" style="font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;">
+            Customer Sign In
+          </h1>
+          <p id="auth-card-subtitle" style="font-size: 0.88rem; color: var(--text-secondary);">
+            Access your service requests and booking history in Unnao.
+          </p>
+        </div>
+
+        <!-- Academic Prototype Notice -->
+        <div class="alert alert-info" style="font-size: 0.82rem; margin-bottom: 20px;">
+          <span>ℹ️</span>
+          <div>
+            <strong>Academic Prototype Note:</strong> This is a BCA minor project frontend prototype. Authentication state is stored locally using localStorage for demonstration purposes.
+          </div>
+        </div>
+
+        <!-- 1. Customer Login Form -->
+        <form id="customer-login-form">
+          <div class="form-group">
+            <label class="form-label" for="cust-login-email">Email or Mobile Number <span class="req">*</span></label>
+            <input type="text" id="cust-login-email" class="form-control" placeholder="e.g. resident@unnao.in or 9876543210" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cust-login-password">Password <span class="req">*</span></label>
+            <input type="password" id="cust-login-password" class="form-control" placeholder="••••••••" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" style="margin-top: 10px;">Sign In as Customer</button>
+        </form>
+
+        <!-- 2. Customer Register Form -->
+        <form id="customer-register-form" style="display: none;">
+          <div class="form-group">
+            <label class="form-label" for="cust-reg-name">Full Name <span class="req">*</span></label>
+            <input type="text" id="cust-reg-name" class="form-control" placeholder="e.g. Pooja Sharma" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cust-reg-contact">Email or Phone Number <span class="req">*</span></label>
+            <input type="text" id="cust-reg-contact" class="form-control" placeholder="e.g. 9876543210 or pooja@gmail.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cust-reg-locality">Your Locality in Unnao <span class="req">*</span></label>
+            <select id="cust-reg-locality" class="form-control" required>
+              <option value="Civil Lines, Unnao">Civil Lines, Unnao</option>
+              <option value="Narendra Nagar, Unnao">Narendra Nagar, Unnao</option>
+              <option value="Lok Nagar, Unnao">Lok Nagar, Unnao</option>
+              <option value="Moti Nagar, Unnao">Moti Nagar, Unnao</option>
+              <option value="Gadan Khera, Unnao">Gadan Khera, Unnao</option>
+              <option value="AB Nagar, Unnao">AB Nagar, Unnao</option>
+              <option value="Gandhi Nagar, Unnao">Gandhi Nagar, Unnao</option>
+              <option value="Shiv Nagar, Unnao">Shiv Nagar, Unnao</option>
+              <option value="Shuklaganj, Unnao">Shuklaganj, Unnao</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cust-reg-password">Create Password <span class="req">*</span></label>
+            <input type="password" id="cust-reg-password" class="form-control" placeholder="••••••••" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" style="margin-top: 10px;">Register Customer Account</button>
+        </form>
+
+        <!-- 3. Provider Login Form -->
+        <form id="provider-login-form" style="display: none;">
+          <div class="form-group">
+            <label class="form-label" for="prov-login-email">Provider Business / Contact <span class="req">*</span></label>
+            <input type="text" id="prov-login-email" class="form-control" placeholder="e.g. Hakim Electricals or unn-elec-001" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prov-login-password">Password <span class="req">*</span></label>
+            <input type="password" id="prov-login-password" class="form-control" placeholder="••••••••" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" style="margin-top: 10px;">Access Provider Dashboard</button>
+        </form>
+
+        <!-- 4. Provider Register Form -->
+        <form id="provider-register-form" style="display: none;">
+          <div class="form-group">
+            <label class="form-label" for="prov-reg-name">Business / Trade Name <span class="req">*</span></label>
+            <input type="text" id="prov-reg-name" class="form-control" placeholder="e.g. Verma Plumbing & Sanitary" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prov-reg-category">Trade Category <span class="req">*</span></label>
+            <select id="prov-reg-category" class="form-control" required>
+              <option value="Electrician">Electrician</option>
+              <option value="Plumbing">Plumbing</option>
+              <option value="House Cleaning">House Cleaning</option>
+              <option value="Computer Repair">Computer Repair</option>
+              <option value="Mobile Repair">Mobile Repair</option>
+              <option value="AC Repair">AC Repair</option>
+              <option value="Painting">Painting</option>
+              <option value="Vehicle Service">Vehicle Service</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prov-reg-locality">Shop / Operating Locality <span class="req">*</span></label>
+            <select id="prov-reg-locality" class="form-control" required>
+              <option value="Civil Lines, Unnao">Civil Lines, Unnao</option>
+              <option value="Narendra Nagar, Unnao">Narendra Nagar, Unnao</option>
+              <option value="Lok Nagar, Unnao">Lok Nagar, Unnao</option>
+              <option value="Moti Nagar, Unnao">Moti Nagar, Unnao</option>
+              <option value="Gadan Khera, Unnao">Gadan Khera, Unnao</option>
+              <option value="AB Nagar, Unnao">AB Nagar, Unnao</option>
+              <option value="Gandhi Nagar, Unnao">Gandhi Nagar, Unnao</option>
+              <option value="Shiv Nagar, Unnao">Shiv Nagar, Unnao</option>
+              <option value="Shuklaganj, Unnao">Shuklaganj, Unnao</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="prov-reg-desc">Short Service Description</label>
+            <textarea id="prov-reg-desc" class="form-control" placeholder="Briefly describe your services, experience, and warranty..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" style="margin-top: 10px;">List Provider Business</button>
+        </form>
+
+        <!-- Toggle Between Login / Register -->
+        <div id="auth-toggle-prompt" style="text-align: center; margin-top: 18px; font-size: 0.88rem; color: var(--text-secondary);">
+          Don't have an account? <a href="#" class="mode-toggle-link" style="color: var(--accent); font-weight: 600;">Register here</a>
+        </div>
+
+        <!-- Instant Demo Logins (For Quick BCA Grading & Evaluation) -->
+        <div class="demo-creds-box">
+          <div style="font-weight: 700; margin-bottom: 6px; color: var(--text-primary);">Quick Demo Login (Single Click):</div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px;">
+            <button type="button" id="demo-login-customer" class="btn btn-secondary btn-sm" style="flex: 1;">
+              👤 Demo Customer
+            </button>
+            <button type="button" id="demo-login-provider" class="btn btn-secondary btn-sm" style="flex: 1;">
+              🛠️ Demo Provider (Hakim Elec.)
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">SERVICE SPHERE</div>
+          <p class="footer-tagline">"Find the right service, right when you need it."</p>
+          <p class="footer-local-notice">
+            Hyper-local service discovery and appointment prototype for Unnao, Uttar Pradesh. BCA Minor Project Prototype.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="providers.html?category=Electrician">Electricians</a></li>
+            <li><a href="providers.html?category=Plumbing">Plumbers</a></li>
+            <li><a href="providers.html?category=AC%20Repair">AC Technicians</a></li>
+            <li><a href="providers.html?category=Computer%20Repair">Computer Repair</a></li>
+            <li><a href="services.html">All 8 Services</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="providers.html">Provider Directory</a></li>
+            <li><a href="bookings.html">My Bookings</a></li>
+            <li><a href="provider-dashboard.html">Provider Portal</a></li>
+            <li><a href="auth.html">Sign In / Register</a></li>
+            <li><a href="about.html">About Project</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Unnao Localities</h4>
+          <p class="footer-local-notice" style="font-size: 0.8rem; margin-bottom: 8px;">
+            Serving Civil Lines, Lok Nagar, Narendra Nagar, Moti Nagar, Gadan Khera, AB Nagar, Gandhi Nagar, Shiv Nagar, Shuklaganj.
+          </p>
+          <span class="location-indicator" style="font-size: 0.75rem;">
+            <span class="loc-dot"></span> Unnao, UP — 209801
+          </span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Service Sphere &bull; BCA Minor Project Prototype &bull; Unnao, Uttar Pradesh</span>
+        <span>HTML5 &bull; CSS3 &bull; Vanilla JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

@@ -223,3 +223,59 @@
     font-size: 1.05rem;
   }
 }
+
+/* ============================================================
+   MOBILE PROVIDER FILTER — REMOVE EXTRA VERTICAL SPACE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+  .filter-section {
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 14px 16px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .search-filter-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .search-filter-grid > div {
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .search-input-wrap {
+    flex: none !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .search-input-wrap .form-control {
+    height: 40px !important;
+    margin: 0 !important;
+  }
+
+  .filter-select {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 40px !important;
+    margin: 0 !important;
+  }
+
+  .filter-reset-btn {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 40px !important;
+    margin: 0 !important;
+  }
+}
